@@ -7,6 +7,7 @@ import { faTwitter } from '@fortawesome/free-brands-svg-icons'
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons'
 import { faPhone } from '@fortawesome/free-solid-svg-icons'
 import { faEarth } from '@fortawesome/free-solid-svg-icons'
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
 
 export class Footer extends Component {
@@ -41,16 +42,16 @@ export class Footer extends Component {
 
             <Col className='p-5 text-justify' lg={3} md={6} sm={12}>
               <h2 className='footerName'>Information</h2>
-              <a className='footerLink' href="/">About Me</a><br />
-              <a className='footerLink' href="/">Company Profile</a><br />
-              <a className='footerLink' href="/">Contact Us</a>
+              <Link className='footerLink' to="/about">About Me</Link><br />
+              <Link className='footerLink' to="/about">Company Profile</Link><br />
+              <Link className='footerLink' to="/contact">Contact Us</Link>
             </Col>
 
             <Col className='p-5 text-justify' lg={3} md={6} sm={12}>
               <h2 className='footerName'>Policy</h2>
-              <a className='footerLink' href="/refund">Refund Policy</a><br />
-              <a className='footerLink' href="/">Terms & Conditions</a><br />
-              <a className='footerLink' href="/">Privacy Policy</a>
+              <Link className='footerLink' to="/refund">Refund Policy</Link><br />
+              <Link className='footerLink' to="/terms">Terms & Conditions</Link><br />
+              <Link className='footerLink' to="/privacy">Privacy Policy</Link>
             </Col>
           </Row>
         </Container>
