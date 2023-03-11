@@ -1,19 +1,21 @@
 import React, { Component, Fragment } from 'react'
-import { Navbar, Nav, Container, ThemeProvider } from 'react-bootstrap'
+import { Navbar, Nav, Container } from 'react-bootstrap'
+import { NavLink } from "react-router-dom";
 import whiteLogo from '../../asset/image/logo_white.png'
 import blackLogo from '../../asset/image/logo_black.png'
 import '../../asset/css/custom.css'
 import '../../asset/css/bootstrap.min.css'
 
 export class TopNavigation extends Component {
-  constructor() {
+  constructor(props) {
     super();
     this.state = {
       navBarTitle: 'navTitle',
       navBarLogo: [whiteLogo],
       navBarBack: "navBackground",
       navBarItem: 'navItem',
-      navVariant: 'dark'
+      navVariant: 'dark',
+      pageTitle: props.title
     }
   }
 
@@ -36,7 +38,8 @@ export class TopNavigation extends Component {
   render() {
     return (
       <Fragment>
-        <Navbar className={this.state.navBarBack} collapseOnSelect fixed='top' expand="lg" variant={this.variant}>
+        <title>{this.state.pageTitle}</title>
+        <Navbar className={this.state.navBarBack} collapseOnSelect fixed='top' expand="lg" variant={this.navVariant}>
           <Container>
             <Navbar.Brand className={this.state.navBarTitle} href="#home"><img src={this.state.navBarLogo} alt="Logo" /></Navbar.Brand>
             <Navbar.Toggle aria-controls="responsive-navbar-nav" />
@@ -45,17 +48,17 @@ export class TopNavigation extends Component {
 
               </Nav>
               <Nav>
-                <Nav.Link className={this.state.navBarItem} href="#deets">HOME</Nav.Link>
-                <Nav.Link className={this.state.navBarItem} href="#deets">ABOUT</Nav.Link>
-                <Nav.Link className={this.state.navBarItem} href="#deets">SERVICE</Nav.Link>
-                <Nav.Link className={this.state.navBarItem} href="#deets">COURSES</Nav.Link>
-                <Nav.Link className={this.state.navBarItem} href="#deets">PORTFOLIO</Nav.Link>
-                <Nav.Link className={this.state.navBarItem} href="#deets">CONTACT US</Nav.Link>
+                <Nav.Link><NavLink exact activeStyle={{ color: '#ffd900' }} className={this.state.navBarItem} to="/">HOME</NavLink></Nav.Link>
+                <Nav.Link><NavLink exact activeStyle={{ color: '#ffd900' }} className={this.state.navBarItem} to="/about">ABOUT</NavLink></Nav.Link>
+                <Nav.Link><NavLink exact activeStyle={{ color: '#ffd900' }} className={this.state.navBarItem} to="/service">SERVICE</NavLink></Nav.Link>
+                <Nav.Link><NavLink exact activeStyle={{ color: '#ffd900' }} className={this.state.navBarItem} to="/course">COURSES</NavLink></Nav.Link>
+                <Nav.Link><NavLink exact activeStyle={{ color: '#ffd900' }} className={this.state.navBarItem} to="/portfolio">PORTFOLIO</NavLink></Nav.Link>
+                <Nav.Link><NavLink exact activeStyle={{ color: '#ffd900' }} className={this.state.navBarItem} to="/contact">CONTACT US</NavLink></Nav.Link>
               </Nav>
             </Navbar.Collapse>
           </Container>
         </Navbar>
-      </Fragment>
+      </Fragment >
     )
   }
 }
