@@ -48,7 +48,7 @@ export class Footer extends Component {
 
             <Col className='p-5 text-justify' lg={3} md={6} sm={12}>
               <h2 className='footerName'>Policy</h2>
-              <a className='footerLink' href="/">Refund Policy</a><br />
+              <a className='footerLink' href="/refund">Refund Policy</a><br />
               <a className='footerLink' href="/">Terms & Conditions</a><br />
               <a className='footerLink' href="/">Privacy Policy</a>
             </Col>
