@@ -123,6 +123,7 @@
   -o-transition: background-color 400ms linear;
   transition: background-color 400ms linear;
   background-color: #ffffff;
+  box-shadow: 0 0 8px 0 rgba(0, 115, 230, 0.3);
 }
 .navItem{
   text-decoration: none !important;
@@ -377,4 +378,154 @@ a.twitter {
   font-weight: 700;
   color: #ffee00;
   font-size: 40px;
+}
+/* //// Home Page Welcome Design  */
+
+.intro-area--top{
+    margin-top: -70px;
+    position: relative;
+    z-index: 2;
+}
+.section-title {
+     margin-bottom: 45px;
+     position: relative;
+ }
+ .section-title .sub-title {
+     font-weight: 500;
+     position: relative;
+     display: inline-block;
+     margin-bottom: 0;
+ }
+ .section-title .sub-title.double-line:before {
+     content: "";
+     position: absolute;
+     left: -50px;
+     top: 10px;
+     height: 2px;
+     width: 40px;
+     background: #051b35;
+ }
+ .section-title .sub-title.double-line:after {
+     content: "";
+     position: absolute;
+     right: -50px;
+     top: 10px;
+     height: 2px;
+     width: 40px;
+     background: #051b35;
+ }
+ .intro-area-inner {
+     box-shadow: 0 0 30px rgb(0 0 0 / 7%);
+     background: #fff;
+     padding: 50px 0 0;
+     border-radius: 8px;
+ }
+ .maintitle{
+     font-family: 'Montserrat',sans-serif;
+     font-weight: 700;
+     color: #051b35;
+     font-size: 40px;
+ }
+ .intro-footer {
+  padding: 30px 30px 10px;
+  border-radius: 0 0 7px 7px;
+}
+.bg-base {
+  background: #fdc800;
+}
+.sideImg{
+   margin-top: -15px;
+}
+.homeIntro{
+  font-family: 'Montserrat',sans-serif;
+  font-weight: 700;
+  color: #051b35;
+  font-size: 16px;
+}
+.link-style{
+  color: #ffffff !important;
+  text-decoration: none !important;
+}
+.link-style:hover{
+ color: #ffffff !important;
+ text-decoration: none !important;
+}
+.about-thumb-wrap.after-shape {
+  margin-right: 30px;
+}
+.about-thumb-wrap.after-shape:after {
+  content: "";
+  position: absolute;
+  right: -30px;
+  width: 154px;
+  height: 80%;
+  top: 50%;
+  border-radius: 10px;
+  background: #fdc800;
+  z-index: -1;
+  transform: translateY(-50%);
+}
+.project-details{
+   margin-left: 35px;
+}
+.projectDetailsText{
+  font-family: 'Montserrat',sans-serif;
+  font-weight: 700;
+  color: #051b35;
+  font-size: 40px;
+}
+.detailsName{
+
+  color: #051b35;
+  font-family: 'Raleway',sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+}
+/* /// Course Details  */
+
+.coruseDetailsText{
+  font-family: 'Montserrat',sans-serif;
+  font-weight: 700;
+  color: #051b35;
+  font-size: 35px;
+}
+.courseDetaisImg{
+  width: 100%;
+}
+.CoruseallDescription{
+
+  font-family: 'Montserrat',sans-serif;
+  font-weight: 700;
+  color: #051b35;
+  font-size: 15px;
+}
+.widget_feature {
+  border: 1px solid #cbd6e2;
+}
+.widget_feature ul {
+  padding: 0 25px 20px;
+}
+.widget_feature ul li {
+  color: #051b35;
+  font-size: 16px;
+  margin-bottom: 9px;
+  list-style: none;
+}
+.widget_feature ul li span {
+  font-family: 'Montserrat',sans-serif;
+  font-weight: 700;
+  color: #051b35;
+  margin-right: 5px;
+}
+.widget_feature .price-wrap {
+  background-color: #b3cdec;
+  padding: 34px 23px 40px;
+}
+.widget-title{
+   margin-top: 20px;
+   margin-bottom: 20px;
+   font-family: 'Montserrat',sans-serif;
+   font-weight: 700;
+   font-size: 22px;
+   position: relative;
 }

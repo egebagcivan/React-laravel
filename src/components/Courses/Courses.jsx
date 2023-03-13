@@ -1,5 +1,6 @@
 import React, { Component, Fragment } from 'react'
 import { Container, Col, Row } from 'react-bootstrap'
+import { Link } from 'react-router-dom'
 
 export class Courses extends Component {
   render() {
@@ -18,7 +19,7 @@ export class Courses extends Component {
                 <Col lg={6} md={6} sm={12}>
                   <h5 className='serviceName text-justify'>Laravel 8</h5>
                   <p className='serviceDescription text-justify'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod.</p>
-                  <a className="float-left courseViewMore" href='#'>View Details</a>
+                  <Link className="courseViewMore float-left" to="/coursedetails" >View Details</Link>
                 </Col>
               </Row>
               <Row>
@@ -29,7 +30,7 @@ export class Courses extends Component {
                 <Col lg={6} md={6} sm={12}>
                   <h5 className='serviceName text-justify'>Laravel 8</h5>
                   <p className='serviceDescription text-justify'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod.</p>
-                  <a className="float-left courseViewMore" href='#'>View Details</a>
+                  <Link className="courseViewMore float-left" to="/coursedetails" >View Details</Link>
                 </Col>
               </Row>
 
@@ -44,7 +45,7 @@ export class Courses extends Component {
                 <Col lg={6} md={6} sm={12}>
                   <h5 className='serviceName text-justify'>Laravel 8</h5>
                   <p className='serviceDescription text-justify'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod.</p>
-                  <a className="float-left courseViewMore" href='#'>View Details</a>
+                  <Link className="courseViewMore float-left" to="/coursedetails" >View Details</Link>
                 </Col>
               </Row>
               <Row>
@@ -55,7 +56,7 @@ export class Courses extends Component {
                 <Col lg={6} md={6} sm={12}>
                   <h5 className='serviceName text-justify'>Laravel 8</h5>
                   <p className='serviceDescription text-justify'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod.</p>
-                  <a className="courseViewMore float-left" href='#'>View Details</a>
+                  <Link className="courseViewMore float-left" to="/coursedetails" >View Details</Link>
                 </Col>
               </Row>
 

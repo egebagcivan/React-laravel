@@ -1,26 +1,23 @@
 import React, { Component, Fragment } from 'react'
-import ContactSec from '../components/ContactSec/ContactSec'
+import CourseDetails from '../components/CourseDetails/CourseDetails'
 import Footer from '../components/Footer/Footer'
 import PageTop from '../components/PageTop/PageTop'
-import Services from '../components/Services/Services'
 import TopNavigation from '../components/TopNavigation/TopNavigation'
 
-export class ServicesPage extends Component {
+class CourseDetailsPage extends Component {
   componentDidMount() {
     window.scroll(0, 0)
   }
   render() {
     return (
       <Fragment>
-        <TopNavigation title="Services" />
-        <PageTop pageTitle="Our Services" />
-        <Services />
-        <ContactSec />
+        <TopNavigation title="Course Details " />
+        <PageTop pagetitle="Course Details" />
+        <CourseDetails />
         <Footer />
-
       </Fragment>
     )
   }
 }
 
-export default ServicesPage
+export default CourseDetailsPage

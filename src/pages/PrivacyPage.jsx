@@ -4,6 +4,9 @@ import TopNavigation from '../components/TopNavigation/TopNavigation'
 import PageTop from '../components/PageTop/PageTop'
 import PrivacyDescription from '../components/PrivacyDescription/PrivacyDescription'
 export class PrivacyPage extends Component {
+  componentDidMount() {
+    window.scroll(0, 0)
+  }
   render() {
     return (
       <Fragment>

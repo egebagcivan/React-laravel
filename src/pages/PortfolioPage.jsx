@@ -5,6 +5,9 @@ import TopNavigation from '../components/TopNavigation/TopNavigation'
 import AllProjects from '../components/AllProjects/AllProjects'
 
 export class PortfolioPage extends Component {
+  componentDidMount() {
+    window.scroll(0, 0)
+  }
   render() {
     return (
       <Fragment>

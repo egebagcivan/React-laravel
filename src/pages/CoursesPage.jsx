@@ -5,6 +5,9 @@ import TopNavigation from '../components/TopNavigation/TopNavigation'
 import AllCourses from '../components/AllCourses/AllCourses'
 
 export class CoursesPage extends Component {
+  componentDidMount() {
+    window.scroll(0, 0)
+  }
   render() {
     return (
       <Fragment>

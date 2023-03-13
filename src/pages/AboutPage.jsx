@@ -6,6 +6,9 @@ import TopNavigation from '../components/TopNavigation/TopNavigation'
 import AboutMe from '../components/AboutMe/AboutMe'
 
 export class AboutPage extends Component {
+  componentDidMount() {
+    window.scroll(0, 0)
+  }
   render() {
     return (
       <Fragment>

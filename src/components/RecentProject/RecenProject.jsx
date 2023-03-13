@@ -1,5 +1,7 @@
 import React, { Component, Fragment } from 'react'
 import { Container, Row, Col, Card, Button } from 'react-bootstrap'
+import { Link } from 'react-router-dom'
+
 
 export class RecenProject extends Component {
   render() {
@@ -18,7 +20,7 @@ export class RecenProject extends Component {
                     Some quick example text to build on the card title and make up the bulk of
                     the card's content.
                   </Card.Text>
-                  <Button variant="primary">Visit WebSite</Button>
+                  <Button variant="primary"><Link className="link-style" to="/projectdetails"> View More </Link>  </Button>
                 </Card.Body>
               </Card>            </Col>
             <Col lg={4} md={6} sm={12}>
@@ -30,7 +32,7 @@ export class RecenProject extends Component {
                     Some quick example text to build on the card title and make up the bulk of
                     the card's content.
                   </Card.Text>
-                  <Button variant="primary">Visit WebSite</Button>
+                  <Button variant="primary"><Link className="link-style" to="/projectdetails"> View More </Link>  </Button>
                 </Card.Body>
               </Card>
             </Col>
@@ -43,7 +45,7 @@ export class RecenProject extends Component {
                     Some quick example text to build on the card title and make up the bulk of
                     the card's content.
                   </Card.Text>
-                  <Button variant="primary">Visit WebSite</Button>
+                  <Button variant="primary"><Link className="link-style" to="/projectdetails"> View More </Link>  </Button>
                 </Card.Body>
               </Card>
             </Col>

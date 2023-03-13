@@ -9,6 +9,8 @@ import ServicesPage from '../pages/ServicesPage';
 import RefundPage from '../pages/RefundPage';
 import TermsPage from '../pages/TermsPage';
 import PrivacyPage from '../pages/PrivacyPage';
+import ProjectDetailPage from '../pages/ProjectDetailPage';
+import CourseDetailsPage from '../pages/CourseDetailsPage';
 
 export class AppRouter extends Component {
   render() {
@@ -24,6 +26,9 @@ export class AppRouter extends Component {
           <Route exact path="/refund" component={RefundPage} />
           <Route exact path="/terms" component={TermsPage} />
           <Route exact path="/privacy" component={PrivacyPage} />
+          <Route exact path="/projectdetails" component={ProjectDetailPage} />
+          <Route exact path="/coursedetails" component={CourseDetailsPage} />
+
         </Switch>
       </Fragment>
     )

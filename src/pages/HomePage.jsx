@@ -10,13 +10,19 @@ import Videos from "../components/Videos/Videos";
 import ClientReview from "../components/ClientReview/ClientReview";
 import AboutMe from "../components/AboutMe/AboutMe";
 import Footer from "../components/Footer/Footer";
+import Welcome from '../components/Welcome/Welcome';
+
 
 export class HomePage extends Component {
+  componentDidMount() {
+    window.scroll(0, 0)
+  }
   render() {
     return (
       <Fragment>
         <TopNavigation title="Home" />
         <TopBanner />
+        <Welcome />
         <Services />
         <Analysis />
         <Summary />
