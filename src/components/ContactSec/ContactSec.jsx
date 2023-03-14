@@ -1,5 +1,5 @@
 import React, { Component, Fragment } from 'react'
-import { Container, Row, Col } from 'react-bootstrap'
+import { Container, Row, Col, Button } from 'react-bootstrap'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons'
 import { faPhone } from '@fortawesome/free-solid-svg-icons'
@@ -29,6 +29,9 @@ export class ContactSec extends Component {
                   <Form.Label>Message</Form.Label>
                   <Form.Control as="textarea" placeholder="Enter Your Message" rows={3} />
                 </Form.Group>
+                <Button onClick={this.sendContact} variant="primary" >
+                  Submit
+                </Button>
               </Form>
             </Col>
 

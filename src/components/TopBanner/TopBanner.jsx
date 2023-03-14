@@ -1,7 +1,22 @@
 import React, { Component, Fragment } from 'react'
 import { Container, Row, Col, Button } from 'react-bootstrap'
+import axios from 'axios'
+import RestClient from '../../Restapi/RestClient';
+import Appurl from '../../Restapi/Appurl';
 
 export class TopBanner extends Component {
+  constructor() {
+    super();
+    this.state = {
+      title: '',
+      subTitle: ''
+    }
+  }
+  componentDidMount() {
+    RestClient.GetRequest(Appurl.HomeTopTitle).then(result => {
+      this.setState({ title: result[0]['home_title'], subTitle: result[0]['home_subtitle'] })
+    });
+  }
   render() {
     return (
       <Fragment>
@@ -10,8 +25,8 @@ export class TopBanner extends Component {
             <Container className='topContent'>
               <Row>
                 <Col className='text-center'>
-                  <h1 className='topTitle'>Easy Learning</h1>
-                  <h4 className='topSubTitle'>Learn Professionally</h4>
+                  <h1 className='topTitle'>{this.state.title}</h1>
+                  <h4 className='topSubTitle'>{this.state.subTitle}</h4>
                   <Button variant="primary">Learn More</Button>
                 </Col>
               </Row>
