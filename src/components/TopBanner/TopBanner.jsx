@@ -8,13 +8,15 @@ export class TopBanner extends Component {
   constructor() {
     super();
     this.state = {
-      title: '',
-      subTitle: ''
+      title: '...',
+      subTitle: '...'
     }
   }
   componentDidMount() {
     RestClient.GetRequest(Appurl.HomeTopTitle).then(result => {
       this.setState({ title: result[0]['home_title'], subTitle: result[0]['home_subtitle'] })
+    }).catch(error => {
+      this.setState({ title: '???', subTitle: '???' })
     });
   }
   render() {
