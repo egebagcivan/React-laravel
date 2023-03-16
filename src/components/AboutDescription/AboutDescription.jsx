@@ -1,53 +1,28 @@
 import React, { Component, Fragment } from 'react'
 import { Col, Container, Row } from 'react-bootstrap'
+import RestClient from '../../Restapi/RestClient';
+import Appurl from '../../Restapi/Appurl';
+import reactHtmlParser from 'react-html-parser';
 
 export class AboutDescription extends Component {
+  constructor() {
+    super();
+    this.state = {
+      AboutDescription: []
+    }
+  }
+  componentDidMount() {
+    RestClient.GetRequest(Appurl.Information).then(result => {
+      this.setState({ AboutDescription: result[0]['about'] })
+    });
+  }
   render() {
     return (
       <Fragment>
         <Container className='mt-5'>
           <Row>
             <Col sm={12} lg={12} md={12}>
-              <h1 className='serviceName'>
-                who am I? <br /> <hr />
-                <p className='serviceDescription'>
-                  I am a web developer. I have been working in this field for 2
-                  years. I have a lot of experience in web development. I have
-                  worked on many projects. I have a lot of experience in web
-                  development. I have worked on many projects. I have a lot of
-                  experience in web development. I have worked on many projects.
-                </p>
-              </h1>
-              <h1 className='serviceName'>
-                who am I? <br /> <hr />
-                <p className='serviceDescription'>
-                  I am a web developer. I have been working in this field for 2
-                  years. I have a lot of experience in web development. I have
-                  worked on many projects. I have a lot of experience in web
-                  development. I have worked on many projects. I have a lot of
-                  experience in web development. I have worked on many projects.
-                </p>
-              </h1>
-              <h1 className='serviceName'>
-                who am I? <br /> <hr />
-                <p className='serviceDescription'>
-                  I am a web developer. I have been working in this field for 2
-                  years. I have a lot of experience in web development. I have
-                  worked on many projects. I have a lot of experience in web
-                  development. I have worked on many projects. I have a lot of
-                  experience in web development. I have worked on many projects.
-                </p>
-              </h1>
-              <h1 className='serviceName'>
-                who am I? <br /> <hr />
-                <p className='serviceDescription'>
-                  I am a web developer. I have been working in this field for 2
-                  years. I have a lot of experience in web development. I have
-                  worked on many projects. I have a lot of experience in web
-                  development. I have worked on many projects. I have a lot of
-                  experience in web development. I have worked on many projects.
-                </p>
-              </h1>
+              {reactHtmlParser(this.state.AboutDescription)}
             </Col>
           </Row>
         </Container>

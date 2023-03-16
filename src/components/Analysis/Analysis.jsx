@@ -23,8 +23,6 @@ export class Analysis extends Component {
   }
 
   render() {
-    const techDesc = this.state.techDesc;
-
     let blue = '#051b35';
     return (
       <Fragment>
