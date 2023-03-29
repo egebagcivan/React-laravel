@@ -5,8 +5,27 @@ import { faEnvelope } from '@fortawesome/free-solid-svg-icons'
 import { faPhone } from '@fortawesome/free-solid-svg-icons'
 import { faEarth } from '@fortawesome/free-solid-svg-icons'
 import Form from 'react-bootstrap/Form';
+import RestClient from '../../Restapi/RestClient';
+import Appurl from '../../Restapi/Appurl';
 
 export class ContactSec extends Component {
+  constructor() {
+    super();
+    this.state = {
+      address: "",
+      email: "",
+      phone: ""
+    }
+  }
+  componentDidMount() {
+    RestClient.GetRequest(Appurl.FooterData).then(result => {
+      this.setState({
+        address: result[0]['address'],
+        email: result[0]['email'],
+        phone: result[0]['phone']
+      })
+    });
+  }
   render() {
     return (
       <Fragment>
@@ -38,9 +57,9 @@ export class ContactSec extends Component {
             <Col lg={6} md={6} sm={12}>
               <h1 className='serviceName'>Discuss Now</h1>
               <p className='serviceDescription'>
-                <FontAwesomeIcon icon={faEarth} />123, Main Street, Your City, USA <br />
-                <FontAwesomeIcon icon={faEnvelope} />Email: example@example.com <br />
-                <FontAwesomeIcon icon={faPhone} />Phone: +880 123 456 789
+                <FontAwesomeIcon icon={faEarth} />{this.state.address}<br />
+                <FontAwesomeIcon icon={faEnvelope} />{this.state.email}<br />
+                <FontAwesomeIcon icon={faPhone} />{this.state.phone}
               </p>
             </Col>
           </Row>

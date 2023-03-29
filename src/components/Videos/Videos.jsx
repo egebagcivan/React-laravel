@@ -4,11 +4,16 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faVideoSlash } from '@fortawesome/free-solid-svg-icons'
 import { Player, BigPlayButton } from 'video-react';
 import "video-react/dist/video-react.css";
+import RestClient from '../../Restapi/RestClient';
+import Appurl from '../../Restapi/Appurl';
+
 export class Videos extends Component {
   constructor() {
     super();
     this.state = {
-      show: false
+      show: false,
+      video_url: "",
+      video_description: ""
     }
   }
   handleModalClose = () => {
@@ -16,6 +21,14 @@ export class Videos extends Component {
   }
   handleModalOpen = () => {
     this.setState({ show: true })
+  }
+  componentDidMount() {
+    RestClient.GetRequest(Appurl.HomeVideo).then(result => {
+      this.setState({
+        video_description: result[0]['video_description'],
+        video_url: result[0]['video_url']
+      })
+    });
   }
   render() {
     return (
@@ -25,11 +38,7 @@ export class Videos extends Component {
           <div className='bottom'></div>
           <Row>
             <Col lg={6} md={6} sm={12} className='videoText'>
-              <p className='text-justify serviceDescription'>
-                Hi! I'm Ege Bağçıvan. I'm a web developer with a serious love for teaching I am a founder of easy Learning and a passionate Web Developer, Programmer & Instructor.<br /><br /><br />
-                I am working online for the last 9 years and have created several successful websites running on the internet. I try to create a project-based course that helps you to learn professionally and make you fell as a complete developer. easy learning exists to help you succeed in life.<br /><br /><br />
-                Each course has been hand-tailored to teach a specific skill. I hope you agree! Whether you’re trying to learn a new skill from scratch or want to refresh your memory on something you’ve learned in the past, you’ve come to the right place.
-              </p>
+              {this.state.video_description}
             </Col>
 
             <Col lg={6} md={6} sm={12} className='videoCard'>
@@ -41,7 +50,7 @@ export class Videos extends Component {
           <Modal.Header closeButton>
           </Modal.Header>
           <Modal.Body>
-            <Player src="https://media.w3.org/2010/05/sintel/trailer_hd.mp4">
+            <Player src={this.state.video_url}>
               <BigPlayButton position="center" />
             </Player>
           </Modal.Body>
