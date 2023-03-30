@@ -1,98 +1,45 @@
 import React, { Component, Fragment } from 'react'
 import { Card, Col, Container, Row, Button } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
+import RestClient from '../../Restapi/RestClient';
+import Appurl from '../../Restapi/Appurl';
 
 class AllProjects extends Component {
+  constructor() {
+    super();
+    this.state = {
+      allProjectData: []
+    }
+  }
+  componentDidMount() {
+    RestClient.GetRequest(Appurl.ProjectAll).then(result => {
+      this.setState({ allProjectData: result })
+    });
+  }
   render() {
+    const allProjectDataList = this.state.allProjectData;
+    const myView = allProjectDataList.map(allProjectDataList => {
+      return <Col lg={4} md={6} sm={12}>
+        <Card className='projectCard'>
+          <Card.Img variant="top" src={allProjectDataList.img_one} />
+          <Card.Body>
+            <Card.Title className='serviceName'>{allProjectDataList.project_name}</Card.Title>
+            <Card.Text className='serviceDescription'>
+              {allProjectDataList.project_description}
+            </Card.Text>
+            <Button variant="primary"><Link className="link-style" to="/projectdetails"> View More </Link>  </Button>
+          </Card.Body>
+        </Card>
+      </Col>
+    })
+
     return (
       <Fragment>
-        <Container className="text-center">
-          <h1 className="serviceMainTitle">RECENT PROJECTS</h1>
-          <div className="bottom"></div>
+        <Container className='text-center'>
+          <h1 className='serviceMainTitle'>ALL PROJECTS</h1>
+          <div className='bottom'></div>
           <Row>
-            <Col lg={4} md={6} sm={12}>
-              <Card className="projectCard">
-                <Card.Img variant="top" src="https://image.freepik.com/free-vector/online-courses-tutorials_52683-37860.jpg" />
-                <Card.Body>
-                  <Card.Title className="serviceName">Project Name One</Card.Title>
-                  <Card.Text className="serviceDescription">
-                    Some quick example text to build on the card title and make up the bulk of
-                    the card's content.
-                  </Card.Text>
-                  <Button variant="primary"><Link className="link-style" to="/projectdetails"> View More </Link>  </Button>
-                </Card.Body>
-              </Card>
-            </Col>
-
-            <Col lg={4} md={6} sm={12}>
-              <Card className="projectCard">
-                <Card.Img variant="top" src="https://image.freepik.com/free-vector/online-tutorials-concept_52683-37481.jpg" />
-                <Card.Body>
-                  <Card.Title className="serviceName">Project Name Two</Card.Title>
-                  <Card.Text className="serviceDescription">
-                    Some quick example text to build on the card title and make up the bulk of
-                    the card's content.
-                  </Card.Text>
-                  <Button variant="primary"><Link className="link-style" to="/projectdetails"> View More </Link>  </Button>
-                </Card.Body>
-              </Card>
-            </Col>
-
-            <Col lg={4} md={6} sm={12}>
-              <Card className="projectCard">
-                <Card.Img variant="top" src="https://image.freepik.com/free-vector/online-courses-concept_23-2148533386.jpg" />
-                <Card.Body>
-                  <Card.Title className="serviceName">Project Name Three</Card.Title>
-                  <Card.Text className="serviceDescription">
-                    Some quick example text to build on the card title and make up the bulk of
-                    the card's content.
-                  </Card.Text>
-                  <Button variant="primary"><Link className="link-style" to="/projectdetails"> View More </Link>  </Button>
-                </Card.Body>
-              </Card>
-            </Col>
-
-            <Col lg={4} md={6} sm={12}>
-              <Card className="projectCard">
-                <Card.Img variant="top" src="https://image.freepik.com/free-vector/online-courses-tutorials_52683-37860.jpg" />
-                <Card.Body>
-                  <Card.Title className="serviceName">Project Name One</Card.Title>
-                  <Card.Text className="serviceDescription">
-                    Some quick example text to build on the card title and make up the bulk of
-                    the card's content.
-                  </Card.Text>
-                  <Button variant="primary"><Link className="link-style" to="/projectdetails"> View More </Link>  </Button>
-                </Card.Body>
-              </Card>
-            </Col>
-
-            <Col lg={4} md={6} sm={12}>
-              <Card className="projectCard">
-                <Card.Img variant="top" src="https://image.freepik.com/free-vector/online-courses-tutorials_52683-37860.jpg" />
-                <Card.Body>
-                  <Card.Title className="serviceName">Project Name One</Card.Title>
-                  <Card.Text className="serviceDescription">
-                    Some quick example text to build on the card title and make up the bulk of
-                    the card's content.
-                  </Card.Text>
-                  <Button variant="primary"><Link className="link-style" to="/projectdetails"> View More </Link>  </Button>
-                </Card.Body>
-              </Card>
-            </Col>
-
-            <Col lg={4} md={6} sm={12}>
-              <Card className="projectCard">
-                <Card.Img variant="top" src="https://image.freepik.com/free-vector/online-courses-tutorials_52683-37860.jpg" />
-                <Card.Body>
-                  <Card.Title className="serviceName">Project Name One</Card.Title>
-                  <Card.Text className="serviceDescription">
-                    Some quick example text to build on the card title and make up the bulk of
-                    the card's content.
-                  </Card.Text>
-                  <Button variant="primary"><Link className="link-style" to="/projectdetails"> View More </Link>  </Button>
-                </Card.Body>
-              </Card>
-            </Col>
+            {myView}
           </Row>
         </Container>
       </Fragment>
