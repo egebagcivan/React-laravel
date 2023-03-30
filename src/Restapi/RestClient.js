@@ -8,5 +8,18 @@ class RestClient {
       return error;
     });
   }
+
+  static PostRequest = (postUrl, postJson) => {
+    let config = {
+      headers: {
+        'Content-Type': 'application/x-wwww-form-urlencoded',
+      }
+    }
+    return axios.post(postUrl, postJson, config).then(response => {
+      return response.data;
+    }).catch(error => {
+      return error;
+    });
+  }
 }
 export default RestClient
