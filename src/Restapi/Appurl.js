@@ -6,7 +6,7 @@ class Appurl {
   static TotalHomeDetails = this.BaseURL + '/totalhome';
   static HomeVideo = this.BaseURL + '/home/video';
 
-  static ProjectDetails = this.BaseURL + '/projectdetails';
+  static ProjectDetails = this.BaseURL + '/projectdetails/';
   static ProjectAll = this.BaseURL + '/projectall';
   static ProjectHome = this.BaseURL + '/projecthome';
   static Services = this.BaseURL + '/services';
