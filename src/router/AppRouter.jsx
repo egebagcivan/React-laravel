@@ -27,7 +27,7 @@ export class AppRouter extends Component {
           <Route exact path="/terms" component={TermsPage} />
           <Route exact path="/privacy" component={PrivacyPage} />
           <Route exact path="/projectdetails/:projectID/:projectName" component={ProjectDetailPage} />
-          <Route exact path="/coursedetails/:courseID" component={CourseDetailsPage} />
+          <Route exact path="/coursedetails/:courseID/:courseName" component={CourseDetailsPage} />
 
         </Switch>
       </Fragment>

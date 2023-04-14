@@ -11,6 +11,7 @@ class CourseDetailsPage extends Component {
     super();
     this.state = {
       id: match.params.courseID,
+      name: match.params.courseName,
       courseData: []
     }
   }
@@ -26,7 +27,7 @@ class CourseDetailsPage extends Component {
     return (
       <Fragment>
         <TopNavigation title="Course Details " />
-        <PageTop pagetitle="Course Details" />
+        <PageTop pagetitle={this.state.name} />
         <CourseDetails courseAllData={this.state.courseData} />
         <Footer />
       </Fragment>
