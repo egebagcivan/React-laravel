@@ -27,7 +27,7 @@ class AllProjects extends Component {
             <Card.Text className='serviceDescription'>
               {allProjectDataList.project_description}
             </Card.Text>
-            <Button variant="primary"><Link className="link-style" to={"/projectdetails/" + allProjectDataList.id}> View More </Link>  </Button>
+            <Button variant="primary"><Link className="link-style" to={"/projectdetails/" + allProjectDataList.id + "/" + allProjectDataList.project_name}> View More </Link>  </Button>
           </Card.Body>
         </Card>
       </Col>
