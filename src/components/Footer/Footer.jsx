@@ -10,6 +10,7 @@ import { faEarth } from '@fortawesome/free-solid-svg-icons'
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import RestClient from '../../Restapi/RestClient';
 import Appurl from '../../Restapi/Appurl';
+import Loading from '../Loading/Loading';
 
 
 export class Footer extends Component {
@@ -22,7 +23,9 @@ export class Footer extends Component {
       facebook: "",
       youtube: "",
       twitter: "",
-      footerCredit: ""
+      footerCredit: "",
+      loaderClass: "p-5 text-justify",
+      mainDivClass: "d-none"
     }
   }
   componentDidMount() {
@@ -34,7 +37,9 @@ export class Footer extends Component {
         facebook: result[0]['facebook'],
         youtube: result[0]['youtube'],
         twitter: result[0]['twitter'],
-        footerCredit: result[0]['footer_credit']
+        footerCredit: result[0]['footer_credit'],
+        loaderClass: "d-none",
+        mainDivClass: "p-5 text-justify"
       })
     });
   }
@@ -42,6 +47,9 @@ export class Footer extends Component {
     return (
       <Fragment>
         <Container fluid={true} className='footerSection'>
+          <Col className={this.state.loaderClass}>
+            <Loading />
+          </Col>
           <Row>
             <Col className='p-5 text-center' lg={3} md={6} sm={12}>
               <h2 className='footerName text-center'>Follow Us</h2>
@@ -58,7 +66,7 @@ export class Footer extends Component {
               </div>
             </Col>
 
-            <Col className='p-5 text-justify' lg={3} md={6} sm={12}>
+            <Col className={this.state.mainDivClass} lg={3} md={6} sm={12}>
               <h2 className='footerName'>Address</h2>
               <p className='footerDescription'>
                 <FontAwesomeIcon icon={faEarth} />{this.state.address}<br />
@@ -67,14 +75,14 @@ export class Footer extends Component {
               </p>
             </Col>
 
-            <Col className='p-5 text-justify' lg={3} md={6} sm={12}>
+            <Col className={this.state.mainDivClass} lg={3} md={6} sm={12}>
               <h2 className='footerName'>Information</h2>
               <Link className='footerLink' to="/about">About Me</Link><br />
               <Link className='footerLink' to="/about">Company Profile</Link><br />
               <Link className='footerLink' to="/contact">Contact Us</Link>
             </Col>
 
-            <Col className='p-5 text-justify' lg={3} md={6} sm={12}>
+            <Col className={this.state.mainDivClass} lg={3} md={6} sm={12}>
               <h2 className='footerName'>Policy</h2>
               <Link className='footerLink' to="/refund">Refund Policy</Link><br />
               <Link className='footerLink' to="/terms">Terms & Conditions</Link><br />

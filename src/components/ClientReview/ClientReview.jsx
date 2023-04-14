@@ -6,6 +6,7 @@ import 'swiper/swiper.min.css'
 import 'swiper/modules/pagination/pagination.min.css'
 import RestClient from '../../Restapi/RestClient';
 import Appurl from '../../Restapi/Appurl';
+import Loading from '../Loading/Loading';
 
 export class ClientReview extends Component {
   constructor() {
