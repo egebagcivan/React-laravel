@@ -4,6 +4,7 @@ import RestClient from '../../Restapi/RestClient';
 import Appurl from '../../Restapi/Appurl';
 import reactHtmlParser from 'react-html-parser';
 import Loading from '../Loading/Loading';
+import WentWrong from '../WentWrong/WentWrong';
 
 
 export class PrivacyDescription extends Component {
@@ -11,18 +12,25 @@ export class PrivacyDescription extends Component {
     super();
     this.state = {
       PrivacyDescription: [],
-      loading: true
+      loading: true,
+      error: false
     }
   }
   componentDidMount() {
     RestClient.GetRequest(Appurl.Information).then(result => {
-      this.setState({ PrivacyDescription: result[0]['privacy'], loading: false })
-    });
+      if (result == null) {
+        this.setState({ error: true })
+      } else {
+        this.setState({ PrivacyDescription: result[0]['privacy'], loading: false })
+      }
+    }).catch(error => {
+      this.setState({ error: true })
+    })
   }
   render() {
     if (this.state.loading) {
       return <Loading />
-    } else {
+    } else if (this.state.loading === false) {
       return (
         <Fragment>
           <Container>
@@ -38,6 +46,9 @@ export class PrivacyDescription extends Component {
           </Container>
         </Fragment >
       )
+    }
+    else if (this.state.error === true) {
+      return <WentWrong />
     }
   }
 }

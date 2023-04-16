@@ -1,5 +1,5 @@
 import React, { Component, Fragment } from 'react'
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { BrowserRouter as Switch, Route } from "react-router-dom";
 import AboutPage from '../pages/AboutPage';
 import ContactPage from '../pages/ContactPage';
 import CoursesPage from '../pages/CoursesPage';

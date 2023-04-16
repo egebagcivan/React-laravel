@@ -1,6 +1,5 @@
 import React, { Component, Fragment } from 'react'
 import { Container, Row, Col, Button } from 'react-bootstrap'
-import axios from 'axios'
 import RestClient from '../../Restapi/RestClient';
 import Appurl from '../../Restapi/Appurl';
 import Loading from '../Loading/Loading';

@@ -1,6 +1,5 @@
 import React, { Component, Fragment } from 'react'
 import { Button, Col, Container, Row } from 'react-bootstrap'
-import projectDetails from '../../asset/image/pdetails.png';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCheckSquare } from '@fortawesome/free-solid-svg-icons'
 import RestClient from '../../Restapi/RestClient';
@@ -39,7 +38,7 @@ class ProjectDetails extends Component {
           <Row>
             <Col lg={6} md={6} sm={12}>
               <div className="about-thumb-wrap after-shape">
-                <img src={this.state.img_two} />
+                <img src={this.state.img_two} alt="projectDetails" />
               </div>
             </Col>
 

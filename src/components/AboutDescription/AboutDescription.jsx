@@ -4,24 +4,32 @@ import RestClient from '../../Restapi/RestClient';
 import Appurl from '../../Restapi/Appurl';
 import reactHtmlParser from 'react-html-parser';
 import Loading from '../Loading/Loading';
+import WentWrong from '../WentWrong/WentWrong';
 
 export class AboutDescription extends Component {
   constructor() {
     super();
     this.state = {
       AboutDescription: [],
-      loading: true
+      loading: true,
+      error: false
     }
   }
   componentDidMount() {
     RestClient.GetRequest(Appurl.Information).then(result => {
-      this.setState({ AboutDescription: result[0]['about'], loading: false })
-    });
+      if (result == null) {
+        this.setState({ error: true })
+      } else {
+        this.setState({ AboutDescription: result[0]['about'], loading: false })
+      }
+    }).catch(error => {
+      this.setState({ error: true })
+    })
   }
   render() {
     if (this.state.loading) {
       return <Loading />
-    } else {
+    } else if (this.state.loading === false) {
       return (
         <Fragment>
           <Container className='mt-5'>
@@ -33,6 +41,9 @@ export class AboutDescription extends Component {
           </Container>
         </Fragment>
       )
+    }
+    else if (this.state.error === true) {
+      return <WentWrong />
     }
   }
 }
