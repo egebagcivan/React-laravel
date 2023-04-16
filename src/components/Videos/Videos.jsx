@@ -7,6 +7,7 @@ import "video-react/dist/video-react.css";
 import RestClient from '../../Restapi/RestClient';
 import Appurl from '../../Restapi/Appurl';
 import Loading from '../Loading/Loading';
+import Zoom from 'react-reveal/Zoom';
 
 export class Videos extends Component {
   constructor() {
@@ -44,11 +45,15 @@ export class Videos extends Component {
             <div className='bottom'></div>
             <Row>
               <Col lg={6} md={6} sm={12} className='videoText'>
-                {this.state.video_description}
+                <Zoom top>
+                  {this.state.video_description}
+                </Zoom>
               </Col>
 
               <Col lg={6} md={6} sm={12} className='videoCard'>
-                <FontAwesomeIcon onClick={this.handleModalOpen} className='iconProject' icon={faVideoSlash} />
+                <Zoom top>
+                  <FontAwesomeIcon onClick={this.handleModalOpen} className='iconProject' icon={faVideoSlash} />
+                </Zoom>
               </Col>
             </Row>
           </Container>

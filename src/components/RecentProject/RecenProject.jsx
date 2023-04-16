@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom'
 import RestClient from '../../Restapi/RestClient';
 import Appurl from '../../Restapi/Appurl';
 import Loading from '../Loading/Loading';
+import Zoom from 'react-reveal/Zoom';
 
 export class RecenProject extends Component {
   constructor() {
@@ -25,16 +26,18 @@ export class RecenProject extends Component {
       const recentProjectList = this.state.recentProjectData;
       const myView = recentProjectList.map(recentProjectList => {
         return <Col lg={4} md={6} sm={12}>
-          <Card className='projectCard'>
-            <Card.Img variant="top" src={recentProjectList.img_one} />
-            <Card.Body>
-              <Card.Title className='serviceName'>{recentProjectList.project_name}</Card.Title>
-              <Card.Text className='serviceDescription'>
-                {recentProjectList.project_description}
-              </Card.Text>
-              <Button variant="primary"><Link className="link-style" to={"/projectdetails/" + recentProjectList.id + "/" + recentProjectList.project_name}> View More </Link>  </Button>
-            </Card.Body>
-          </Card>
+          <Zoom top>
+            <Card className='projectCard'>
+              <Card.Img variant="top" src={recentProjectList.img_one} />
+              <Card.Body>
+                <Card.Title className='serviceName'>{recentProjectList.project_name}</Card.Title>
+                <Card.Text className='serviceDescription'>
+                  {recentProjectList.project_description}
+                </Card.Text>
+                <Button variant="primary"><Link className="link-style" to={"/projectdetails/" + recentProjectList.id + "/" + recentProjectList.project_name}> View More </Link>  </Button>
+              </Card.Body>
+            </Card>
+          </Zoom>
         </Col>
       })
 

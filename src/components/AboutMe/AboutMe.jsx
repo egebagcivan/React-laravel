@@ -2,8 +2,7 @@ import React, { Component, Fragment } from 'react'
 import { Container, Row, Col } from 'react-bootstrap'
 import face from '../../asset/image/face.png'
 import { init } from 'ityped'
-
-
+import Flip from 'react-reveal/Flip';
 
 export class AboutMe extends Component {
   componentDidMount() {
@@ -18,18 +17,21 @@ export class AboutMe extends Component {
           <div className='bottom'></div>
           <Row>
             <Col lg={6} md={6} sm={12}>
-              <div className="aboutMeImage">
-                <img className="aboutImg" src={face} />
-              </div>
+              <Flip top>
+                <div className="aboutMeImage">
+                  <img className="aboutImg" src={face} />
+                </div>
+              </Flip>
             </Col>
 
             <Col lg={6} md={6} sm={12}>
-              <div className="aboutMeBody">
-                <h2 className="aboutMeDetails">Hi There, I'm</h2>
-                <h2 className="aboutMeTitle">Ege Bağçıvan</h2>
-                <h3 className="aboutMeDetails">Work as <span id="myElement"> </span> </h3>
-              </div>
-
+              <Flip top>
+                <div className="aboutMeBody">
+                  <h2 className="aboutMeDetails">Hi There, I'm</h2>
+                  <h2 className="aboutMeTitle">Ege Bağçıvan</h2>
+                  <h3 className="aboutMeDetails">Work as <span id="myElement"> </span> </h3>
+                </div>
+              </Flip>
             </Col>
           </Row>
         </Container>

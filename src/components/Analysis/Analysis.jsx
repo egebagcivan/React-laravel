@@ -5,6 +5,8 @@ import RestClient from '../../Restapi/RestClient';
 import Appurl from '../../Restapi/Appurl';
 import reactHtmlParser from 'react-html-parser';
 import Loading from '../Loading/Loading';
+import LightSpeed from 'react-reveal/LightSpeed';
+import Zoom from 'react-reveal/Zoom';
 
 export class Analysis extends Component {
   constructor() {
@@ -32,7 +34,9 @@ export class Analysis extends Component {
       return (
         <Fragment>
           <Container className='text-center'>
-            <h1 className='serviceMainTitle'>TECHNOLOGY USED</h1>
+            <LightSpeed top>
+              <h1 className='serviceMainTitle'>TECHNOLOGY USED</h1>
+            </LightSpeed>
             <div className='bottom'></div>
             <Row>
               <Col style={{ height: '300px' }} lg={6} md={12} sm={12}>
@@ -46,9 +50,11 @@ export class Analysis extends Component {
                 </ResponsiveContainer>
               </Col>
               <Col lg={6} md={12} sm={12}>
-                <p className='text-justify serviceDescription'>
-                  {reactHtmlParser(this.state.techdesc)}
-                </p>
+                <Zoom>
+                  <p className='text-justify serviceDescription'>
+                    {reactHtmlParser(this.state.techdesc)}
+                  </p>
+                </Zoom>
               </Col>
             </Row>
           </Container>

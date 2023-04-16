@@ -7,6 +7,7 @@ import 'swiper/modules/pagination/pagination.min.css'
 import RestClient from '../../Restapi/RestClient';
 import Appurl from '../../Restapi/Appurl';
 import Loading from '../Loading/Loading';
+import Zoom from 'react-reveal/Zoom';
 
 export class ClientReview extends Component {
   constructor() {
@@ -38,17 +39,19 @@ export class ClientReview extends Component {
             <div className='reviewBottom'></div>
             <Row className='text-center justify-content-center'>
               <Col lg={6} md={6} sm={12}>
-                <Swiper
-                  slidesPerView={"auto"}
-                  centeredSlides={true}
-                  spaceBetween={30}
-                  navigation={true}
-                  pagination={true}
-                  modules={[Pagination, Navigation]}
-                  className="mySwiper"
-                >
-                  {myView}
-                </Swiper>
+                <Zoom top>
+                  <Swiper
+                    slidesPerView={"auto"}
+                    centeredSlides={true}
+                    spaceBetween={30}
+                    navigation={true}
+                    pagination={true}
+                    modules={[Pagination, Navigation]}
+                    className="mySwiper"
+                  >
+                    {myView}
+                  </Swiper>
+                </Zoom>
               </Col>
             </Row>
           </Container>

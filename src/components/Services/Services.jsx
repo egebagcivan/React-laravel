@@ -3,6 +3,8 @@ import { Container, Col, Row } from 'react-bootstrap'
 import RestClient from '../../Restapi/RestClient';
 import Appurl from '../../Restapi/Appurl';
 import Loading from '../Loading/Loading';
+import Zoom from 'react-reveal/Zoom';
+import LightSpeed from 'react-reveal/LightSpeed';
 
 export class Services extends Component {
   constructor() {
@@ -24,17 +26,21 @@ export class Services extends Component {
       const servicesList = this.state.serviceData;
       const myView = servicesList.map(servicesList => {
         return <Col lg={4} md={6} sm={12}>
-          <div className='serviceCard text-center'>
-            <img className='webIcon' src={servicesList.service_logo} alt="web" />
-            <h2 className='serviceName'>{servicesList.service_name}</h2>
-            <p className='serviceDescription'>{servicesList.service_description}</p>
-          </div>
+          <Zoom top>
+            <div className='serviceCard text-center'>
+              <img className='webIcon' src={servicesList.service_logo} alt="web" />
+              <h2 className='serviceName'>{servicesList.service_name}</h2>
+              <p className='serviceDescription'>{servicesList.service_description}</p>
+            </div>
+          </Zoom>
         </Col>
       })
       return (
         <Fragment>
           <Container className='text-center'>
-            <h1 className='serviceMainTitle'>MY SERVICES</h1>
+            <LightSpeed>
+              <h1 className='serviceMainTitle'>MY SERVICES</h1>
+            </LightSpeed>
             <div className='bottom'></div>
             <Row>
               {myView}

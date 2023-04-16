@@ -3,6 +3,7 @@ import { Container, Row, Col, Button } from 'react-bootstrap'
 import RestClient from '../../Restapi/RestClient';
 import Appurl from '../../Restapi/Appurl';
 import Loading from '../Loading/Loading';
+import Fade from 'react-reveal/Fade';
 
 export class TopBanner extends Component {
   constructor() {
@@ -32,8 +33,10 @@ export class TopBanner extends Component {
                   <Loading />
                 </Col>
                 <Col className={this.state.mainDivClass}>
-                  <h1 className='topTitle'>{this.state.title}</h1>
-                  <h4 className='topSubTitle'>{this.state.subTitle}</h4>
+                  <Fade top>
+                    <h1 className='topTitle'>{this.state.title}</h1>
+                    <h4 className='topSubTitle'>{this.state.subTitle}</h4>
+                  </Fade>
                   <Button variant="primary">Learn More</Button>
                 </Col>
               </Row>
