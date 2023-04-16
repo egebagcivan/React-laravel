@@ -5,6 +5,7 @@ import whiteLogo from '../../asset/image/logo_white.png'
 import blackLogo from '../../asset/image/logo_black.png'
 import '../../asset/css/custom.css'
 import '../../asset/css/bootstrap.min.css'
+import '../../asset/css/responsive.css'
 
 export class TopNavigation extends Component {
   constructor(props) {

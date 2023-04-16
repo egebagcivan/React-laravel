@@ -24,5 +24,4 @@ yarn-error.log*
 node_modules/.package-lock.json
 node_modules/.package-lock.json
 package-lock.json
-package.json
 src/asset/.DS_Store
