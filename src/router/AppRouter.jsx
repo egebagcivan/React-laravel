@@ -1,5 +1,5 @@
 import React, { Component, Fragment } from 'react'
-import { BrowserRouter as Switch, Route } from "react-router-dom";
+import { Switch, Route } from "react-router-dom";
 import AboutPage from '../pages/AboutPage';
 import ContactPage from '../pages/ContactPage';
 import CoursesPage from '../pages/CoursesPage';
@@ -11,6 +11,8 @@ import TermsPage from '../pages/TermsPage';
 import PrivacyPage from '../pages/PrivacyPage';
 import ProjectDetailPage from '../pages/ProjectDetailPage';
 import CourseDetailsPage from '../pages/CourseDetailsPage';
+import NotFound from '../components/NotFound/NotFound';
+import PageNotFound from '../pages/PageNotFound';
 
 export class AppRouter extends Component {
   render() {
@@ -28,6 +30,8 @@ export class AppRouter extends Component {
           <Route exact path="/privacy" component={PrivacyPage} />
           <Route exact path="/projectdetails/:projectID/:projectName" component={ProjectDetailPage} />
           <Route exact path="/coursedetails/:courseID/:courseName" component={CourseDetailsPage} />
+
+          <Route path="*" component={PageNotFound} />
 
         </Switch>
       </Fragment>
